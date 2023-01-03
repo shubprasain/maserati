@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 const IndexPage = () => {
   return (
     <main>
-      <Layout pageTitle="Welcome to Inghelbrecht Agency!">
+      <Layout pageTitle="Maserati Showroom">
       <p>Lorem ipsum</p>
     <StaticImage
     alt="randomized unsplash image!"
