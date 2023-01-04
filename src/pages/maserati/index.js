@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {graphql, Link} from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 
 // Step 2: Definieer je component
 const Maserati = ({data: {allWpCar: {edges}}}) => {
@@ -8,7 +8,11 @@ const Maserati = ({data: {allWpCar: {edges}}}) => {
     <Layout pageTitle="List of Maserati car">
     {edges.map((item) => {
         const maserati = item.node.maserati;
-        return <p key={item.node.id}>{maserati.title} {maserati.doors}</p>
+        const slug = item.node.slug;
+        return <Link to={`/maserati/${slug}`}>
+        <p key={item.node.id}>{maserati.title} {maserati.doors}</p>
+        </Link>
+
       })}
     </Layout>
   )
@@ -18,7 +22,6 @@ query {
   allWpCar {
     edges {
       node {
-        id
         maserati {
           acceleration
           description
@@ -31,6 +34,8 @@ query {
           maxPower
           length
         }
+        id
+        slug
       }
     }
   }
