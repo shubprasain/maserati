@@ -1,12 +1,15 @@
 import { graphql } from 'gatsby'
 import * as React from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image' 
 import Layout from '../../components/layout'
 
 const CarPage =({data: {wpCar:{maserati:maserati}}}) => {
-    
+        const image =  getImage(maserati.image.localFile)
+
     return (
        <Layout>
           <div>
+      <GatsbyImage image={image} alt={maserati.image.altText}/>  
       <h3>{maserati.title}</h3>
       <h1></h1>
       <div dangerouslySetInnerHTML={{__html: maserati.description}} />
@@ -36,6 +39,15 @@ query ($id: String) {
       length
       maxPower
       seats
+      image {
+        localFile {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+        }
+        altText
+      
+    }
         }
     }
 }
