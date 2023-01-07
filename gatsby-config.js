@@ -12,8 +12,8 @@ module.exports = {
     {
       resolve: "gatsby-source-wordpress",
       options : {
-        url:"http://maserati-showroom.local/graphql"
-      }
-    }
+        url:"http://maserati-showroom.local/graphql",
+      },
+    },
   ],
 };
