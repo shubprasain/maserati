@@ -70,3 +70,27 @@ html {
     color:aquamarine
   }
   
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+    gap: 30px;
+    padding: 2rem 0;
+    color: #e0e0e0;
+  }
+
+
+
+.title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+  margin-right: auto;
+}
+
+
