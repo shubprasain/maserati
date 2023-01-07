@@ -3,7 +3,7 @@ module.exports = {
     title: "Maserati Showroom",
     description: "Maserati Showroom was found by Shubham Prasain in 2022. ",
     author: "@gatsbyjs",
-    siteUrl: "https://gatsbystarterdefaultsource.gatsbyjs.io/",
+    siteUrl: "http://maserati-showroom.local/",
   },
   plugins: [
     "gatsby-plugin-image",
