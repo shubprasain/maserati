@@ -53,6 +53,7 @@ const IndexPage = ({
             <input type="text" name="subject" placeholder='Subject' required={true} />
             <label>Message:</label>
             <textarea name="message" placeholder='Type your message' required={true}></textarea>
+            <input type="hidden" name="form-name" value="contact" />
             <button type="submit">Send</button>
         </form>
       </section>
