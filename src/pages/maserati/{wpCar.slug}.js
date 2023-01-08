@@ -2,18 +2,35 @@ import { graphql } from 'gatsby'
 import * as React from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image' 
 import Layout from '../../components/layout'
-import {carInfo} from './index.module.css'
+import {carInfo,maseratiFuels} from './index.module.css'
 
-const CarPage =({data: {wpCar:{maserati:maseratis}}}) => {
-        const image =  getImage(maseratis.image.localFile)
+
+
+const CarPage =({
+  data: {
+    wpCar:{
+      maserati:maseratis,
+      fuels : {nodes: fuels},
+    },
+  },
+}) =>{
+   const image =  getImage(maseratis.image.localFile)
 
     return (
        <Layout pageTitle ='Maserati Information'>
           <section>
+          <article>
           <h3>{maseratis.title}</h3>
+          <div className={maseratiFuels}>
+           {fuels.map((fuel, i) => (
+              <span key={i}>
+                {fuel.name} {i + 1 < fuels.length && "- "}
+              </span>
+            ))}
+          </div>
       <GatsbyImage image={image} alt={maseratis.image.altText}/> 
       <div dangerouslySetInnerHTML={{__html: maseratis.description}} />
-
+      </article>
       <table>
         <tr>
           <th className={carInfo}>Construction Year</th>
@@ -54,8 +71,8 @@ const CarPage =({data: {wpCar:{maserati:maseratis}}}) => {
 }
 export const query = graphql`
 query ($slug: String) {
-    wpCar(slug:{eq:$slug}) {
-        maserati {
+  wpCar(slug: {eq: $slug}) {
+    maserati {
       constructionYear
       description
       doors
@@ -73,10 +90,16 @@ query ($slug: String) {
           }
         }
         altText
-       }
+      }
+    }
+    fuels {
+      nodes {
+        name
       }
     }
   }
+}
+
 `
 
 export default CarPage

@@ -3,10 +3,10 @@ import {graphql, Link} from 'gatsby'
 import Layout from '../../components/layout'
 import { getImage ,GatsbyImage} from 'gatsby-plugin-image'
 import Maserati from '../../components/maserati'
-import {description,hero,maseratis,section,subtitle} from '../page.module.css'
+import {description,maseratis,section,subtitle} from '../page.module.css'
 
 
-// Step 2: Definieer je component
+
 const MaseratiPage = ({
   data: {
     allWpCar: { edges },
@@ -18,7 +18,7 @@ const MaseratiPage = ({
     
     <Layout>
       <GatsbyImage
-      className={hero}
+      
       image={image}
       alt={maseratiField.picture.altText}
       />
